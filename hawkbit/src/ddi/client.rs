@@ -65,6 +65,7 @@ impl Client {
         );
 
         let client = reqwest::Client::builder()
+            .danger_accept_invalid_certs(true)
             .default_headers(headers)
             .build()?;
         Ok(Self { base_url, client })
